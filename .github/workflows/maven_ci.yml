@@ -1,0 +1,21 @@
+name: "Call Java CI with Maven"
+
+permissions:
+  contents: read
+
+on:
+  workflow_dispatch:
+  pull_request:
+    types: [opened, synchronize, reopened]
+  push:
+    branches:
+      - main
+  schedule:
+    # At 03:00 on Sunday (Please note: GitHub actions schedule is in UTC time).
+    - cron: "0 3 * * 0"
+
+jobs:
+  shared-workflows:
+    uses: Sundsvallskommun/.github/.github/workflows/java-maven-ci.yml@main
+    with:
+      java: "25"

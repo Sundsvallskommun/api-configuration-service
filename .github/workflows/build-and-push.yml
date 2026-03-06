@@ -1,0 +1,14 @@
+name: "Call Build and Push Image"
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  packages: write
+
+jobs:
+  shared-workflows:
+    uses: Sundsvallskommun/.github/.github/workflows/build-and-push.yml@main
+    with:
+      java: "25"
